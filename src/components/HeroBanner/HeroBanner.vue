@@ -47,10 +47,10 @@ onUnmounted(() => {
 <template>
   <section
     v-if="hasSlides"
-    class="relative w-full overflow-hidden bg-gradient-to-r from-banner-orange to-banner-yellow"
+    class="relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-banner-orange to-banner-yellow py-6 md:py-10 px-4"
     aria-label="Promotional banner"
   >
-    <div class="container mx-auto px-4 py-6 md:py-10">
+    <div class="relative">
       <div class="relative flex items-center min-h-[200px] md:min-h-[280px]">
         <BannerSlide :slide="currentSlide" />
 

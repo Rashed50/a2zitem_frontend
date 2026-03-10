@@ -25,10 +25,12 @@ function closeFilterDrawer() {
 </script>
 
 <template>
-  <div>
-    <HeroBanner :slides="bannersStore.slides" />
+  <div class="container mx-auto px-4">
+    <div class="pt-4">
+      <HeroBanner :slides="bannersStore.slides" />
+    </div>
 
-    <div class="container mx-auto px-4 py-6">
+    <div class="py-6">
       <!-- Mobile filter trigger -->
       <div class="lg:hidden mb-4">
         <button

@@ -1,7 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useCartStore } from '@/stores/cart'
-import SearchBar from './SearchBar.vue'
+import TopBar from './TopBar.vue'
+import DefaultPagesNav from './DefaultPagesNav.vue'
 import NavLinks from './NavLinks.vue'
 import HeaderActions from './HeaderActions.vue'
 
@@ -20,7 +21,9 @@ function closeMobileMenu() {
 </script>
 
 <template>
-  <header class="bg-header-blue text-white">
+  <header>
+    <TopBar />
+    <div class="bg-header-blue text-white">
     <!-- Top bar: logo, search, actions -->
     <div class="container mx-auto px-4 py-3">
       <div class="flex items-center justify-between gap-4">
@@ -28,8 +31,8 @@ function closeMobileMenu() {
           <span class="text-xl font-bold">Datatech</span>
         </router-link>
 
-        <div class="hidden md:flex flex-1 max-w-xl mx-4">
-          <SearchBar />
+        <div class="hidden md:flex flex-1 justify-center mx-4">
+          <DefaultPagesNav />
         </div>
 
         <div class="flex items-center gap-2">
@@ -48,9 +51,9 @@ function closeMobileMenu() {
         </div>
       </div>
 
-      <!-- Mobile search -->
+      <!-- Mobile: default pages links -->
       <div class="md:hidden mt-2">
-        <SearchBar />
+        <DefaultPagesNav />
       </div>
     </div>
 
@@ -63,5 +66,6 @@ function closeMobileMenu() {
         />
       </div>
     </nav>
+    </div>
   </header>
 </template>
