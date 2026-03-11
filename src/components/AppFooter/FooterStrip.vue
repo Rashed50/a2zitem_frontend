@@ -1,11 +1,11 @@
 <script setup>
 const items = [
   { title: 'STORE LOCATOR', icon: 'location', text: 'Find our Stores' },
-  { title: 'ONLINE ORDER', icon: 'phone', text: '01974-488389', text2: '01404433222' },
-  { title: 'MULTIPLAN BRANCH', icon: 'phone', text: '01404433250' },
-  { title: 'RMA & SERVICE', icon: 'phone', text: '01974-488327', text2: '01404433280' },
-  { title: 'CORPORATE DEALS', icon: 'phone', text: '01974488312', text2: '01404433202' },
-  { title: 'CHATTOGRAM BRANCH', icon: 'phone', text: '01974488314', text2: '01404433260' },
+  { title: 'ONLINE ORDER', icon: 'phone', text: '+8801703429479', text2: '+8801810830821' },
+  { title: 'BANK ACCOUNT 1', icon: 'bank', text: 'Bank Name', text2: 'A/C No: xxxxx-xxxx' },
+  { title: 'BANK ACCOUNT 2', icon: 'bank', text: 'Bank Name', text2: 'A/C No: xxxxx-xxxx' },
+  { title: 'bKash', icon: 'wallet', text: '01XXX-XXXXXXX', text2: 'Send Money / Payment' },
+  { title: 'Nagad', icon: 'wallet', text: '01XXX-XXXXXXX', text2: 'Send Money / Payment' },
 ]
 </script>
 
@@ -22,6 +22,16 @@ const items = [
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </span>
+          <span v-else-if="item.icon === 'bank'" class="shrink-0 text-gray-400 mt-0.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </span>
+          <span v-else-if="item.icon === 'wallet'" class="shrink-0 text-gray-400 mt-0.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
             </svg>
           </span>
           <span v-else class="shrink-0 text-gray-400 mt-0.5">

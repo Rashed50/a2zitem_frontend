@@ -13,11 +13,11 @@
       <div class="grid sm:grid-cols-2 gap-6">
         <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
           <h3 class="font-semibold text-gray-900 mb-2">Phone</h3>
-          <a href="tel:+8801XXXXXXXXX" class="text-header-blue hover:underline">+880 1XXX-XXXXXX</a>
+          <a href="tel:+8801703429479" class="text-header-blue hover:underline">+880 1703429479</a>
         </div>
         <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
           <h3 class="font-semibold text-gray-900 mb-2">Email</h3>
-          <a href="mailto:info@datatech.com" class="text-header-blue hover:underline">info@datatech.com</a>
+          <a href="mailto:a2zitem24@gmail.com" class="text-header-blue hover:underline">a2zitem24@gmail.com</a>
         </div>
         <div class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm sm:col-span-2">
           <h3 class="font-semibold text-gray-900 mb-2">Address</h3>

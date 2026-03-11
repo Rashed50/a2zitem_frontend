@@ -27,8 +27,9 @@ function closeMobileMenu() {
     <!-- Top bar: logo, search, actions -->
     <div class="container mx-auto px-4 py-3">
       <div class="flex items-center justify-between gap-4">
-        <router-link to="/" class="flex items-center gap-2 shrink-0" aria-label="Datatech Home">
-          <span class="text-xl font-bold">Datatech</span>
+        <router-link to="/" class="flex items-center gap-2 shrink-0" aria-label="A2Z Items Home">
+          <img src="/app-logo.jpeg" alt="A2Z Items" class="h-10 w-auto object-contain" />
+          <span class="text-xl font-bold hidden sm:inline">A2Z Items</span>
         </router-link>
 
         <div class="hidden md:flex flex-1 justify-center mx-4">

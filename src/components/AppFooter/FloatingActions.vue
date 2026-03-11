@@ -6,7 +6,7 @@ const cartStore = useCartStore()
 const cartCount = computed(() => cartStore.count)
 const compareCount = computed(() => 0) // TODO: compare store
 
-const chatUrl = 'https://wa.me/8801974488389'
+const chatUrl = 'https://wa.me/8801703429479'
 </script>
 
 <template>
