@@ -6,6 +6,7 @@ import { useRelatedProducts } from '@/composables/useRelatedProducts'
 import { useCartStore } from '@/stores/cart'
 import { formatPrice } from '@/utils/formatters'
 import ProductGrid from '@/components/ProductListing/ProductGrid.vue'
+import ProductReviewSection from '@/components/ProductReviewSection/ProductReviewSection.vue'
 
 const route = useRoute()
 const cartStore = useCartStore()
@@ -71,6 +72,9 @@ function addToCart() {
           </div>
         </div>
       </div>
+
+      <!-- Customer reviews -->
+      <ProductReviewSection :product-id="product.id" />
 
       <!-- Same category products -->
       <div class="mt-12 pt-8 border-t border-gray-200">
