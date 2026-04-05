@@ -7,7 +7,7 @@
     <p class="text-sm text-gray-500 mb-8">Last updated: January 2025</p>
     <div class="prose prose-gray max-w-none space-y-4 text-gray-600">
       <p>
-        Welcome to Datatech. By accessing or using our website and services, you agree to be bound by
+        Welcome to A2Z Items. By accessing or using our website and services, you agree to be bound by
         these Terms and Conditions.
       </p>
       <h2 class="text-xl font-semibold text-gray-900 mt-6">Use of Service</h2>
@@ -32,7 +32,7 @@
       </p>
       <h2 class="text-xl font-semibold text-gray-900 mt-6">Contact</h2>
       <p>
-        For questions about these Terms & Conditions, contact us at info@datatech.com.
+        For questions about these Terms & Conditions, contact us at a2zitem24@gmail.com.
       </p>
     </div>
   </div>

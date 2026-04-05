@@ -6,7 +6,7 @@ const cartStore = useCartStore()
 const cartCount = computed(() => cartStore.count)
 const compareCount = computed(() => 0) // TODO: compare store
 
-const chatUrl = 'https://wa.me/8801974488389'
+const chatUrl = 'https://wa.me/8801848380992'
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const chatUrl = 'https://wa.me/8801974488389'
       </svg>
       <span class="text-[10px] font-semibold mt-0.5">CHAT</span>
     </a>
-    <router-link
+    <!-- <router-link
       to="#compare"
       class="flex flex-col items-center justify-center w-14 h-14 rounded-lg bg-gray-800 text-white shadow-lg hover:bg-gray-700 border border-gray-600 relative"
       aria-label="Compare products"
@@ -35,9 +35,9 @@ const chatUrl = 'https://wa.me/8801974488389'
       <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-header-blue text-[10px] font-bold">
         {{ compareCount }}
       </span>
-    </router-link>
+    </router-link> -->
     <router-link
-      to="/cart"
+      to="#"
       class="flex flex-col items-center justify-center w-14 h-14 rounded-lg bg-gray-800 text-white shadow-lg hover:bg-gray-700 border border-gray-600 relative"
       aria-label="Cart"
     >

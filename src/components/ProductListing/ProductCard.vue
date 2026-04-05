@@ -40,13 +40,13 @@ function compareProduct() {
         >
           View Details
         </router-link>
-        <button
+        <!-- <button
           type="button"
           class="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded hover:bg-gray-200 transition-colors border border-gray-200"
           @click="compareProduct"
         >
           Compare This Product
-        </button>
+        </button> -->
       </div>
     </div>
   </article>

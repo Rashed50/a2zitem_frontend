@@ -1,9 +1,11 @@
 <script setup>
-const phone = '+880 1XXX-XXXXXX'
-const email = 'info@datatech.com'
+const phone = '+88 01848 380 992'
+const phone1 = '+88 01810 830 821'
+const email = 'a2zitem24@gmail.com'
 
-const messengerUrl = 'https://m.me/datatech'
-const whatsappUrl = 'https://wa.me/8801XXXXXXXXX'
+const facebookUrl = 'https://www.facebook.com/a2zitembd/'
+const youtubeUrl = 'https://www.youtube.com/channel/UCPepgmX-AVXc1pQY5YuvapA'
+const whatsappUrl = 'https://wa.me/8801848380992'
 </script>
 
 <template>
@@ -21,6 +23,15 @@ const whatsappUrl = 'https://wa.me/8801XXXXXXXXX'
             <span>{{ phone }}</span>
           </a>
           <a
+            :href="`tel:${phone1.replace(/\s/g, '')}`"
+            class="flex items-center gap-1.5 hover:text-blue-200 transition-colors"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>{{ phone1 }}</span>
+          </a>
+          <a
             :href="`mailto:${email}`"
             class="flex items-center gap-1.5 hover:text-blue-200 transition-colors"
           >
@@ -32,14 +43,25 @@ const whatsappUrl = 'https://wa.me/8801XXXXXXXXX'
         </div>
         <div class="flex items-center gap-2">
           <a
-            :href="messengerUrl"
+            :href="facebookUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="p-1.5 rounded hover:bg-blue-600 transition-colors"
-            aria-label="Messenger"
+            aria-label="Facebook"
           >
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.11 7.17v3.42l3.04-1.67c.81.23 1.67.35 2.56.35 5.64 0 10-4.13 10-9.27S17.64 2 12 2zm.85 12.25l-2.68-2.84-5.24 2.84 5.76-6.05 2.68 2.84 5.24-2.84-5.76 6.05z"/>
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a
+            :href="youtubeUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-1.5 rounded hover:bg-blue-600 transition-colors"
+            aria-label="YouTube"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </a>
           <a

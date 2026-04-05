@@ -8,7 +8,7 @@ import PriceRangeSlider from './PriceRangeSlider.vue'
 import FilterSection from './FilterSection.vue'
 
 const filtersStore = useFiltersStore()
-const filterOptions = ref({ priceMin: 0, priceMax: 37383, availability: [], subcategories: [], brands: [] })
+const filterOptions = ref({ priceMin: 0, priceMax: 137383, availability: [], subcategories: [], brands: [] })
 
 const availabilityOptions = computed(() => filterOptions.value.availability || [])
 const subcategoryOptions = computed(() => filterOptions.value.subcategories || [])
@@ -22,7 +22,7 @@ onMounted(async () => {
   )
   filterOptions.value = {
     priceMin: data?.priceMin ?? 0,
-    priceMax: data?.priceMax ?? 37383,
+    priceMax: data?.priceMax ?? 137383,
     availability: data?.availability ?? [
       { value: 'in_stock', label: 'In Stock' },
       { value: 'out_of_stock', label: 'Out of Stock' },

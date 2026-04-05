@@ -7,7 +7,7 @@
     <p class="text-sm text-gray-500 mb-8">Last updated: January 2025</p>
     <div class="prose prose-gray max-w-none space-y-4 text-gray-600">
       <p>
-        This Privacy Policy describes how Datatech ("we", "us", or "our") collects, uses, and shares your
+        This Privacy Policy describes how A2Z Items ("we", "us", or "our") collects, uses, and shares your
         information when you use our website and services.
       </p>
       <h2 class="text-xl font-semibold text-gray-900 mt-6">Information We Collect</h2>
@@ -28,7 +28,7 @@
       </p>
       <h2 class="text-xl font-semibold text-gray-900 mt-6">Contact Us</h2>
       <p>
-        If you have questions about this Privacy Policy, please contact us at info@datatech.com.
+        If you have questions about this Privacy Policy, please contact us at a2zitem24@gmail.com.
       </p>
     </div>
   </div>

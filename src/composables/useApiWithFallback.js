@@ -15,14 +15,17 @@ const mockModules = {
 export async function useApiWithFallback(apiCall, mockPath, validate) {
   try {
     const response = await apiCall()
+    return response;
+   
     if (validate(response)) {
+      debugger
       return response
     }
   } catch (_) {
     // API failed or timed out – fall through to mock
   }
-  const loader = mockModules[mockPath]
-  if (!loader) throw new Error(`Unknown mock path: ${mockPath}`)
-  const mockModule = await loader()
-  return mockModule.default
+  // const loader = mockModules[mockPath]
+  // if (!loader) throw new Error(`Unknown mock path: ${mockPath}`)
+  // const mockModule = await loader()
+  // return mockModule.default
 }

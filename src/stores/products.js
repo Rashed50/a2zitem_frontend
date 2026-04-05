@@ -30,10 +30,11 @@ export const useProductsStore = defineStore('products', () => {
         'products.json',
         isValidProductResponse
       )
-      const rawList = Array.isArray(data) ? data : data?.data ?? data?.items ?? []
-      const rawTotal = data?.total ?? rawList.length
+
+      const rawList =   (Array.isArray(data.results) ? data.results : [])
+    
       list.value = rawList
-      total.value = rawTotal
+      total.value = data?.total_items ?? rawList.length
     } finally {
       loading.value = false
     }

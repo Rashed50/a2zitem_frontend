@@ -1,15 +1,15 @@
 <script setup>
 const partners = [
-  'Islami Bank',
-  'Dutch-Bangla Bank',
-  'Uttara Bank',
-  'South Bank',
-  'Agrani Bank',
-  'AB Bank',
-  'Nagad',
-  'bKash',
-  'Rocket',
-  'DBBL',
+   { title: 'Islami Bank','info': 'Payment partner' },
+  { title: 'Dutch-Bangla Bank','info': 'Payment partner' },
+  { title: 'Uttara Bank','info': 'Payment partner' },
+  { title: 'South Bank','info': 'Payment partner' },
+  { title: 'Agrani Bank','info': 'Payment partner' },
+  { title: 'AB Bank','info': 'Payment partner' },
+  { title: 'Nagad','info': 'Payment partner' },
+  { title: 'bKash','info': 'Payment partner' },
+  { title: 'Rocket','info': 'Payment partner' },
+  { title: 'DBBL','info': 'Payment partner' },
 ]
 </script>
 
@@ -23,7 +23,8 @@ const partners = [
           :key="p"
           class="px-4 py-2 rounded bg-white/10 text-gray-300 text-xs font-medium"
         >
-          {{ p }}
+          {{ p.title }}
+          <p class="text-gray-400 text-xs">{{ p.info }}</p>
         </div>
       </div>
     </div>

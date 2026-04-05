@@ -1,12 +1,12 @@
-# Datatech Store Frontend
+# A2Z Items – Store Frontend
 
-A production-ready Vue 3 e-commerce store frontend with a modular architecture, API service layer, and fallback mock data strategy.
+A production-ready Vue 3 e-commerce store frontend for **A2Z Items** (used electronics), with a modular architecture, API service layer, and fallback mock data strategy.
 
 ---
 
 ## Project Description
 
-This application is a frontend for an electronics/computer components store (Datatech). It includes:
+This application is the frontend for **A2Z Items** (used electronics • A to Z). It includes:
 
 - **Homepage** with hero carousel, category navigation, product filters (price, availability, subcategories, brands), and product grid
 - **Product detail** page with full description and a “same category” product grid

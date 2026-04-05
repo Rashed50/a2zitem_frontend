@@ -26,9 +26,10 @@ export function useProductDetail(idRef) {
         'products.json',
         () => false
       )
-      const list = Array.isArray(data) ? data : data?.data ?? data?.items ?? []
-      const found = list.find((p) => String(p.id) === String(id))
-      product.value = found ?? null
+
+   //   const list = Array.isArray(data) ? data : data?.data ?? data?.items ?? []
+   //   const found = list.find((p) => String(p.id) === String(id))
+      product.value = data.results // found ?? null
     } catch (e) {
       error.value = e?.message ?? 'Failed to load product'
       product.value = null

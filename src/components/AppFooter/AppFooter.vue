@@ -10,7 +10,7 @@ import FloatingActions from './FloatingActions.vue'
   <footer class="bg-gray-900 text-gray-400 mt-auto">
     <FooterStrip />
     <FooterColumns />
-    <FooterPayment />
+    <!-- <FooterPayment /> -->
     <FooterCopyright />
     <FloatingActions />
   </footer>

@@ -12,14 +12,19 @@ export const useCategoryStore = defineStore('categories', () => {
 
   async function fetchCategories() {
     loading.value = true
+    
+    console.log('Fetching categories...');
+ 
     try {
       const data = await useApiWithFallback(
         () => getCategories(),
         'categories.json',
         isValidCategoriesResponse
       )
-      const raw = Array.isArray(data) ? data : data?.data ?? data?.categories ?? []
-      list.value = raw
+      console.log('Categories response:', data);
+      const categories = data.results //.map(item => item.name);
+   //   const raw = Array.isArray(data) ? data : data?.data ?? data?.categories ?? []
+      list.value = categories
     } finally {
       loading.value = false
     }
