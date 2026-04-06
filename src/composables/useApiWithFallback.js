@@ -18,7 +18,6 @@ export async function useApiWithFallback(apiCall, mockPath, validate) {
     return response;
    
     if (validate(response)) {
-      debugger
       return response
     }
   } catch (_) {

@@ -15,7 +15,7 @@ const { product, loading, error } = useProductDetail(() => route.params.id)
 const category = computed(() => product.value?.category ?? '')
 const excludeId = computed(() => route.params.id)
 const { products: relatedProducts, loading: relatedLoading } = useRelatedProducts(category, excludeId)
-
+ 
 const priceFormatted = computed(() =>
   product.value ? formatPrice(product.value.price ?? product.value.priceFormatted) : ''
 )
@@ -45,19 +45,19 @@ function addToCart() {
         <div class="grid md:grid-cols-2 gap-8">
           <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img
-              :src="product.image"
+              :src=" product.images.length > 0 ? product.images[0].image : 'placeholder.png'"
               :alt="product.name"
               class="w-full h-full object-contain p-4"
             />
           </div>
           <div>
             <p v-if="product.category" class="text-sm text-gray-500 uppercase tracking-wide mb-1">
-              {{ product.category }}
+              {{ product.category.name }}
             </p>
             <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               {{ product.name }}
             </h1>
-            <p class="text-2xl font-bold text-gray-900 mb-4">{{ priceFormatted }}</p>
+            <p class="text-2xl font-bold text-gray-900 mb-4">TK- {{ product.variants.length > 0 ? product.variants[0].selling_price : '-' }}</p>
             <p v-if="product.inStock !== false" class="text-green-600 text-sm font-medium mb-6">In Stock</p>
             <p v-else class="text-red-600 text-sm font-medium mb-6">Out of Stock</p>
             <p v-if="product.description" class="text-gray-600 mb-6">{{ product.description }}</p>
@@ -79,7 +79,7 @@ function addToCart() {
       <!-- Same category products -->
       <div class="mt-12 pt-8 border-t border-gray-200">
         <h2 class="text-xl font-bold text-gray-900 mb-4">
-          More from {{ product.category || 'this category' }}
+          More from {{ product.category.name || 'this category' }}
         </h2>
         <ProductGrid
           :products="relatedProducts"
