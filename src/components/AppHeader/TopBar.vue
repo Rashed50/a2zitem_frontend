@@ -1,6 +1,6 @@
 <script setup>
 const phone = '+88 01848 380 992'
-const phone1 = '+88 01810 830 821'
+const phone1 = '+8801716 950 877'
 const email = 'a2zitem24@gmail.com'
 
 const facebookUrl = 'https://www.facebook.com/a2zitembd/'

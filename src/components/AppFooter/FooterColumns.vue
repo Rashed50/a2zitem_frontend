@@ -45,7 +45,7 @@ const memberships = ['Green', 'ECS', 'e-Cas']
         <div class="mt-4 text-gray-400 text-sm space-y-2">
           <p>a2zitem24@gmail.com</p>
           <p>-81 Laboratory Road, (New Elephant Road) Masuma Plaza, (1st Floor) Dhaka, Bangladesh.</p>
-          <p>Tel: 9614502038</p>
+          <!-- <p>Tel: 9614502038</p> -->
           <p class="text-red-500">Friday Open.</p>
         </div>
         <div class="mt-6">

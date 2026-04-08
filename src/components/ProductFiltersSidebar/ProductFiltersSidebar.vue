@@ -41,10 +41,10 @@ onMounted(async () => {
 
 
 async function fetchBrands(){
-     debugger;
+     
     
     try {
-          const response = await axios.get('http://localhost:8000/api/v1/product-attributes/brand/mini-list')
+          const response = await axios.get('https://a2zbackend.a2zitem.com/api/v1/product-attributes/brand/mini-list')
     
           filterOptions.value.brands = response.data.results  
           console.log('Fetched brands:', filterOptions.value.brands);
