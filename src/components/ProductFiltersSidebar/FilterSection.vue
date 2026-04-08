@@ -24,6 +24,7 @@ function getLabel(opt) {
 }
 
 function isChecked(opt) {
+  
   const val = getValue(opt)
   if (props.type === 'radio') return props.modelValue === val
   if (Array.isArray(props.modelValue)) return props.modelValue.includes(val)

@@ -1,4 +1,5 @@
 <script setup>
+import axios from 'axios'
 import { ref, computed, onMounted } from 'vue'
 import { useFiltersStore } from '@/stores/filters'
 import { useApiWithFallback } from '@/composables/useApiWithFallback'
@@ -29,11 +30,30 @@ onMounted(async () => {
     ],
     subcategories: data?.subcategories ?? [],
     brands: data?.brands ?? [],
+   
   }
+   
   if (filterOptions.value.priceMax > 0) {
     filtersStore.setPriceRange(filterOptions.value.priceMin, filterOptions.value.priceMax)
   }
+  fetchBrands();
 })
+
+
+async function fetchBrands(){
+     debugger;
+    
+    try {
+          const response = await axios.get('http://localhost:8000/api/v1/product-attributes/brand/mini-list')
+    
+          filterOptions.value.brands = response.data.results  
+          console.log('Fetched brands:', filterOptions.value.brands);
+    } catch (err) {
+      console.error('Error fetching brands:', err)
+    } finally {
+      
+    }
+}
 
 function onAvailabilityChange(value) {
   filtersStore.setAvailability(value)
@@ -73,21 +93,23 @@ function onPriceChange(min, max) {
       @update:model-value="onAvailabilityChange"
     />
 
-    <FilterSection
+    <!-- <FilterSection
       title="SUBCATEGORIES"
       type="checkbox"
       :options="subcategoryOptions"
       :model-value="filtersStore.subcategories"
       @update:model-value="onSubcategoryChange"
-    />
+    /> -->
 
     <FilterSection
       title="BRANDS"
       type="radio"
       :options="brandOptions"
       name="brands"
-      :model-value="filtersStore.brands[0]"
-      @update:model-value="(v) => onBrandChange(v ? [v] : [])"
+       value-key="id"         
+        label-key="name"       
+        :model-value="filtersStore.brands[0]"
+        @update:model-value="(v) => onBrandChange(v ? [v] : [])"
     />
   </aside>
 </template>

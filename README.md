@@ -59,6 +59,11 @@ Copy `.env.example` to `.env` and set:
 
 ---
 
+## reset your changes after last commit
+```
+git reset --hard
+```
+
 ## Project Folder Structure
 
 ```
