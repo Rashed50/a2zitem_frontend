@@ -26,33 +26,34 @@ export function useProductDetail(idRef) {
 
 
 
-    // try {
-    //   const data = await useApiWithFallback(
-    //     () => getProductById(id),
-    //     'products.json',
-    //    // () => false
-    //   )
+    try {
+      const data = await useApiWithFallback(
+        () => getProductById(id),
+        'products.json',
+       // () => false
+      )
 
-    //   console.log('Fetched product data:', data.results)
-    //   product.value = data.results // found ?? null
-    // } catch (e) {
-    //   error.value = e?.message ?? 'Failed to load product'
-    //   product.value = null
-    // } finally {
-    //   loading.value = false
-    // }
-
-      try {
-             const data = await axios.get(`https://a2zbackend.a2zitem.com/api/v1/product/customer/product-details/${id}/`)
-     console.log('Fetched product data:', data.data)
-     product.value = data.data.results // found ?? null 
-     
+      console.log('Fetched product data:', data.results)
+      product.value =data.results // found ?? null
     } catch (e) {
       error.value = e?.message ?? 'Failed to load product'
       product.value = null
     } finally {
       loading.value = false
     }
+
+    //   try {
+    //       // const data = await axios.get(`https://a2zbackend.a2zitem.com/api/v1/product/customer/product-details/${id}/`)
+    //          const data = await axios.get(`http://localhost:8000/api/v1/product/customer/product-details/${id}/`)
+    //  console.log('Fetched product data:', data.data)
+    //  product.value = data.results // found ?? null 
+     
+    // } catch (e) {
+    //   error.value = e?.message ?? 'Failed to load product'
+    //   product.value = null
+    // } finally {
+    //   loading.value = false
+    // }
 
 
   }

@@ -68,7 +68,7 @@ export const useProductsStore = defineStore('products', () => {
         'products.json',
         isValidProductResponse
       )
-      debugger;
+ 
 
       const rawList =   (Array.isArray(data.results) ? data.results : [])
     
@@ -81,7 +81,7 @@ export const useProductsStore = defineStore('products', () => {
 
   // Actions to update sorting changed from sort by menu
   function setSort(value) {
-    // debugger
+   
     sortBy.value = value
     console.log('Sort by changed to:', value);
     // If you want to sort locally without refetching from the server, 
