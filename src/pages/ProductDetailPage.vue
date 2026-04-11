@@ -73,6 +73,9 @@ function addToCart() {
         </div>
       </div>
 
+ 
+       
+
       <!-- Customer reviews -->
       <ProductReviewSection :product-id="product.id" />
 

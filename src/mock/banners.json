@@ -2,28 +2,28 @@
   "data": [
     {
       "id": "1",
-      "title": "IMOU RANGER PRO 3 MP",
+      "title": "NEW ARRIVAL-IMOU RANGER PRO 3 MP",
       "subtitle": "Imou",
       "tagline": "NO ক্যাবল NO হেসাল ম্যাটার",
-      "image": "https://images.unsplash.com/photo-1558002038-10559092a5d4?w=800&h=400&fit=crop",
+      "image": "https://a2zitem.s3.ap-southeast-1.amazonaws.com/products/images/imou+camera.png",
       "ctaUrl": "#",
       "ctaText": "Details"
     },
     {
       "id": "1",
-      "title": "TODAYS ARRIVAL",
-      "subtitle": "Imou",
-      "tagline": "NO ক্যাবল NO হেসাল ম্যাটার",
-      "image": "https://images.unsplash.com/photo-1558002038-10559092a5d4?w=800&h=400&fit=crop",
+      "title": " NEW ARRIVAL- Apple Macbook Pro 2025",
+      "subtitle": "Applie Macbook Pro 2025",
+      "tagline": "Brand New",
+      "image": "https://a2zitem.s3.ap-southeast-1.amazonaws.com/products/images/laptop_slider.jpeg",
       "ctaUrl": "#",
       "ctaText": "Details"
     },
     {
       "id": "1",
-      "title": "NEW ARRIVAL",
-      "subtitle": "Imou",
-      "tagline": "NO ক্যাবল NO হেসাল ম্যাটার",
-      "image": "https://images.unsplash.com/photo-1558002038-10559092a5d4?w=800&h=400&fit=crop",
+      "title": " NEW ARRIVAL-Microsoft Surface",
+      "subtitle": "Microsoft",
+      "tagline": "Brand New",
+      "image": "https://a2zitem.s3.ap-southeast-1.amazonaws.com/products/images/slider_surface.png",
       "ctaUrl": "#",
       "ctaText": "Details"
     }
