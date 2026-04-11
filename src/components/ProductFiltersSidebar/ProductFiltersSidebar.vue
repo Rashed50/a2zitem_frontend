@@ -41,8 +41,7 @@ onMounted(async () => {
 
 
 async function fetchBrands(){
-     
-    
+
     try {
           const response = await axios.get('https://a2zbackend.a2zitem.com/api/v1/product-attributes/brand/mini-list')
     
