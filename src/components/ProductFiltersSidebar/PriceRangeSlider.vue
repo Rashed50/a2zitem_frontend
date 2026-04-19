@@ -12,6 +12,7 @@ const emit = defineEmits(['update:range'])
 
 const localMin = ref(props.modelMin)
 const localMax = ref(props.modelMax)
+let lastEmitted = { min: null, max: null }
 
 watch(
   () => [props.modelMin, props.modelMax],
@@ -21,16 +22,28 @@ watch(
   }
 )
 
+function clampAndEmit() {
+  let min = Math.min(localMin.value, localMax.value)
+  let max = Math.max(localMin.value, localMax.value)
+  min = Math.max(props.min, min)
+  max = Math.min(props.max, max)
+  if (lastEmitted.min === min && lastEmitted.max === max) return
+  lastEmitted = { min, max }
+  emit('update:range', min, max)
+}
+
 watch(
   [localMin, localMax],
   () => {
-    let min = Math.min(localMin.value, localMax.value)
-    let max = Math.max(localMin.value, localMax.value)
-    min = Math.max(props.min, min)
-    max = Math.min(props.max, max)
-    emit('update:range', min, max)
-  },
-  { immediate: true }
+    clampAndEmit()
+  }
+)
+
+watch(
+  () => [props.min, props.max],
+  () => {
+    clampAndEmit()
+  }
 )
 
 function onMinInput(e) {

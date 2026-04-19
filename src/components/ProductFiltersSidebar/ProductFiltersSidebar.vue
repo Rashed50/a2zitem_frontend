@@ -1,19 +1,37 @@
 <script setup>
-import axios from 'axios'
 import { ref, computed, onMounted } from 'vue'
 import { useFiltersStore } from '@/stores/filters'
 import { useApiWithFallback } from '@/composables/useApiWithFallback'
 import { getFilterOptions } from '@/services/filterService'
-import { isValidFiltersResponse } from '@/utils/validators'
+import { getBrandMiniList, normalizeBrandMiniList } from '@/services/brandService'
+import { isValidFiltersResponse, isValidBrandMiniListResponse } from '@/utils/validators'
 import PriceRangeSlider from './PriceRangeSlider.vue'
 import FilterSection from './FilterSection.vue'
 
 const filtersStore = useFiltersStore()
-const filterOptions = ref({ priceMin: 0, priceMax: 137383, availability: [], subcategories: [], brands: [] })
+const filterOptions = ref({
+  priceMin: 0,
+  priceMax: 137383,
+  availability: [],
+  subcategories: [],
+  brands: [],
+})
 
 const availabilityOptions = computed(() => filterOptions.value.availability || [])
 const subcategoryOptions = computed(() => filterOptions.value.subcategories || [])
 const brandOptions = computed(() => filterOptions.value.brands || [])
+
+async function loadBrands() {
+  const data = await useApiWithFallback(
+    () => getBrandMiniList(),
+    'brands.json',
+    isValidBrandMiniListResponse
+  )
+  filterOptions.value = {
+    ...filterOptions.value,
+    brands: normalizeBrandMiniList(data),
+  }
+}
 
 onMounted(async () => {
   const data = await useApiWithFallback(
@@ -30,29 +48,14 @@ onMounted(async () => {
     ],
     subcategories: data?.subcategories ?? [],
     brands: data?.brands ?? [],
-   
   }
-   
+
   if (filterOptions.value.priceMax > 0) {
     filtersStore.setPriceRange(filterOptions.value.priceMin, filterOptions.value.priceMax)
   }
-  fetchBrands();
+
+  await loadBrands()
 })
-
-
-async function fetchBrands(){
-
-    try {
-          const response = await axios.get('https://a2zbackend.a2zitem.com/api/v1/product-attributes/brand/mini-list')
-    
-          filterOptions.value.brands = response.data.results  
-          console.log('Fetched brands:', filterOptions.value.brands);
-    } catch (err) {
-      console.error('Error fetching brands:', err)
-    } finally {
-      
-    }
-}
 
 function onAvailabilityChange(value) {
   filtersStore.setAvailability(value)
@@ -92,23 +95,24 @@ function onPriceChange(min, max) {
       @update:model-value="onAvailabilityChange"
     />
 
-    <!-- <FilterSection
+    <FilterSection
+      v-if="subcategoryOptions.length"
       title="SUBCATEGORIES"
       type="checkbox"
       :options="subcategoryOptions"
       :model-value="filtersStore.subcategories"
       @update:model-value="onSubcategoryChange"
-    /> -->
+    />
 
     <FilterSection
       title="BRANDS"
       type="radio"
       :options="brandOptions"
       name="brands"
-       value-key="id"         
-        label-key="name"       
-        :model-value="filtersStore.brands[0]"
-        @update:model-value="(v) => onBrandChange(v ? [v] : [])"
+      value-key="id"
+      label-key="name"
+      :model-value="filtersStore.brands[0]"
+      @update:model-value="(v) => onBrandChange(v != null && v !== '' ? [v] : [])"
     />
   </aside>
 </template>

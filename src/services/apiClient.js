@@ -1,19 +1,28 @@
 import axios from 'axios'
 
+function resolveBaseUrl() {
+  const url =
+    import.meta.env.VITE_API_BASE_URL?.trim() ||
+    import.meta.env.VITE_API_BASE_URL_PRODUCTION?.trim() ||
+    ''
+  return url.replace(/\/$/, '')
+}
+
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL_PRODUCTION || '',
-  timeout: 10000,
+  baseURL: resolveBaseUrl(),
+  timeout: Number(import.meta.env.VITE_API_TIMEOUT) || 30000,
   headers: {
     'Content-Type': 'application/json',
   },
 })
 
-// Request interceptor – e.g. add auth token
 apiClient.interceptors.request.use(
   (config) => {
-
-      console.log('API Request URL:', config.baseURL + config.url)
-
+    if (import.meta.env.DEV) {
+      const base = config.baseURL || ''
+      const path = config.url?.startsWith('http') ? config.url : `${base}${config.url || ''}`
+      console.debug('[API]', config.method?.toUpperCase(), path)
+    }
     const token = localStorage.getItem('token')
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
@@ -23,13 +32,18 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 )
 
-// Response interceptor – return data, throw on error
 apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    console.log('API Respponse Error    :', error)
-    const message = error.response?.data?.message || error.message || 'Request failed'
+    const message =
+      error.response?.data?.message ||
+      error.response?.data?.detail ||
+      error.message ||
+      'Request failed'
     const status = error.response?.status
+    if (import.meta.env.DEV) {
+      console.warn('[API]', status || 'network', message)
+    }
     return Promise.reject({ message, status, original: error })
   }
 )

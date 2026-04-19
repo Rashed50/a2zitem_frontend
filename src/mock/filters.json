@@ -13,11 +13,8 @@
     "Mini PC"
   ],
   "brands": [
-    "AMD",
-    "Asus",
-    "Dell",
-    "HP",
-    "Intel PC",
-    "Lenovo"
+    { "id": 1, "name": "DELL", "logo": "" },
+    { "id": 2, "name": "HP", "logo": "" },
+    { "id": 6, "name": "LENOVO", "logo": "" }
   ]
 }

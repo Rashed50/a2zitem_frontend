@@ -2,6 +2,13 @@ import { ref, watch } from 'vue'
 import { useApiWithFallback } from './useApiWithFallback'
 import { getProducts } from '@/services/productService'
 import { isValidProductResponse } from '@/utils/validators'
+import { getCategoryLabel } from '@/utils/productDisplay'
+
+function extractProductList(data) {
+  if (Array.isArray(data)) return data
+  if (data?.results && Array.isArray(data.results)) return data.results
+  return data?.data ?? data?.items ?? data?.list ?? []
+}
 
 export function useRelatedProducts(categoryRef, excludeIdRef) {
   const products = ref([])
@@ -19,16 +26,15 @@ export function useRelatedProducts(categoryRef, excludeIdRef) {
         'products.json',
         isValidProductResponse
       )
-      const list = Array.isArray(data) ? data : data?.data ?? data?.items ?? []
+      const list = extractProductList(data)
       const exclude = excludeId != null ? String(excludeId) : null
       const cat = String(category).toLowerCase()
-      products.value = list.filter(
-        (p) => {
-          const sameCategory = p.category && String(p.category).toLowerCase() === cat
-          const notCurrent = String(p.id) !== exclude
-          return sameCategory && notCurrent
-        }
-      )
+      products.value = list.filter((p) => {
+        const pCat = getCategoryLabel(p.category).toLowerCase()
+        const sameCategory = pCat && pCat === cat
+        const notCurrent = String(p.id) !== exclude
+        return sameCategory && notCurrent
+      })
     } catch (_) {
       products.value = []
     } finally {

@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "message": "Brand list retrieved successfully.",
+  "total_items": 6,
+  "filters": {
+    "search": null,
+    "ordering": null,
+    "filters": {}
+  },
+  "results": [
+    { "id": 1, "name": "DELL", "logo": "" },
+    { "id": 2, "name": "HP", "logo": "" },
+    { "id": 3, "name": "LENOVO", "logo": "" },
+    { "id": 4, "name": "ASUS", "logo": "" },
+    { "id": 5, "name": "APPLE", "logo": "" },
+    { "id": 6, "name": "APTECH", "logo": "" }
+  ]
+}

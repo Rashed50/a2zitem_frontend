@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, watch } from 'vue'
+import { watch } from 'vue'
 import { useProductsStore } from '@/stores/products'
 import { useFiltersStore } from '@/stores/filters'
 import ProductGridToolbar from './ProductGridToolbar.vue'
@@ -8,14 +8,22 @@ import ProductGrid from './ProductGrid.vue'
 const productsStore = useProductsStore()
 const filtersStore = useFiltersStore()
 
-onMounted(() => {
-  productsStore.fetchProducts()
-})
-
 watch(
-  () => filtersStore.queryParams,
-  () => productsStore.fetchProducts(),
-  { deep: true }
+  () =>
+    [
+      filtersStore.priceMin,
+      filtersStore.priceMax,
+      filtersStore.availability,
+      filtersStore.subcategories.join(','),
+      filtersStore.brands.join(','),
+      productsStore.sortBy,
+      productsStore.perPage,
+      productsStore.page,
+    ].join('|'),
+  () => {
+    productsStore.fetchProducts()
+  },
+  { immediate: true }
 )
 </script>
 
