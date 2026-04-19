@@ -14,6 +14,7 @@ export const useFiltersStore = defineStore('filters', () => {
     availability: availability.value,
     subcategories: subcategories.value,
     brands: brands.value,
+
   }))
 
   function setPriceRange(min, max) {
