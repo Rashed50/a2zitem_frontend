@@ -68,7 +68,7 @@
       "name": "Lenovo ThinkCentre M720q Tiny PC",
       "price": 48000,
       "image": "https://images.unsplash.com/photo-1587616211892-f7f3d2d8a28f?w=400&h=300&fit=crop",
-      "inStock": true,
+      "inStock": false,
       "category": "Desktop",
       "description": "Lenovo ThinkCentre M720q Tiny—compact business PC with strong performance and security features."
     }
