@@ -1,8 +1,13 @@
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
 import { useCategoryStore } from '@/stores/categories'
+import { useFiltersStore } from '@/stores/filters'
+import { useProductsStore } from '@/stores/products'
 
 const categoryStore = useCategoryStore()
+const filtersStore = useFiltersStore()
+const productsStore = useProductsStore()
+// categories now are objects { id, name, ... }
 const categories = computed(() => categoryStore.list)
 
 defineProps({
@@ -42,6 +47,34 @@ function onScroll() {
   updateScrollState()
 }
 
+function onCategoryClick(cat) {
+  // compute id string to use as fallback
+  const catId = typeof cat === 'string'
+    ? cat
+    : (cat && typeof cat === 'object' ? (cat.id ?? cat.slug ?? cat.name ?? '') : String(cat ?? ''))
+
+  // Try to use the store setter if present (preferred). Fallback to directly assigning the category state
+  if (filtersStore && typeof filtersStore.setCategory === 'function') {
+    filtersStore.setCategory(cat)
+  } else if (filtersStore && 'category' in filtersStore) {
+    // direct assignment (handles older or stale store shapes)
+    try {
+      filtersStore.category = catId
+    } catch (e) {
+      // some store proxies may prevent direct assignment; warn for debugging
+      // eslint-disable-next-line no-console
+      console.warn('Failed to assign filtersStore.category directly', e, filtersStore)
+    }
+  } else {
+    // eslint-disable-next-line no-console
+    console.warn('filtersStore.setCategory not available and filtersStore.category missing', filtersStore)
+  }
+
+  // reset to first page and fetch products with new filters
+  productsStore.setPage(1)
+  productsStore.fetchProducts()
+}
+
 watch(categories, () => {
   setTimeout(updateScrollState, 0)
 }, { immediate: true })
@@ -65,11 +98,11 @@ onMounted(() => {
       <ul
         class="fixed left-0 top-0 z-20 h-full w-64 flex flex-col gap-4 bg-white p-4 pt-16 shadow-xl overflow-y-auto"
       >
-        <li v-for="cat in categories" :key="typeof cat === 'string' ? cat : cat.name || cat.id">
+        <li v-for="cat in categories" :key="typeof cat === 'string' ? cat : cat.id">
           <a
-            :href="`#${(typeof cat === 'string' ? cat : cat.name || '').toString().toLowerCase().replace(/\s+/g, '-')}`"
+            href="#"
+            @click.prevent="() => { onCategoryClick(cat); emit('close') }"
             class="block py-1 hover:underline"
-            @click="emit('close')"
           >
             {{ typeof cat === 'string' ? cat : cat.name || cat.id }}
           </a>
@@ -99,14 +132,15 @@ onMounted(() => {
         >
           <li
             v-for="cat in categories"
-            :key="typeof cat === 'string' ? cat : cat.name || cat.id"
+            :key="typeof cat === 'string' ? cat : cat.id"
             class="shrink-0"
           >
             <a
-              :href="`#${(typeof cat === 'string' ? cat : cat.name || '').toString().toLowerCase().replace(/\s+/g, '-')}`"
+              href="#"
+              @click.prevent="() => onCategoryClick(cat)"
               class="block py-1 hover:underline whitespace-nowrap"
             >
-              {{  cat }}
+              {{ typeof cat === 'string' ? cat : cat.name }}
             </a>
           </li>
         </ul>

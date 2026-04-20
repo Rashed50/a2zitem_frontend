@@ -13,6 +13,8 @@ export const productListQueryKeys = {
   /** Query key; values are strings like `in_stock`, `out_of_stock` (see filters store). */
   availability: env.VITE_API_PRODUCT_AVAILABILITY_PARAM || 'availability',
   subcategories: env.VITE_API_PRODUCT_SUBCATEGORIES_PARAM || 'subcategories',
-  brandId: env.VITE_API_PRODUCT_BRAND_PARAM || 'brandId',
-  category: env.VITE_API_PRODUCT_CATEGORY_PARAM || 'category',
+  // Force brand query key to 'brand_id' by default
+  brandId: env.VITE_API_PRODUCT_BRAND_PARAM || 'brand_id',
+  // Force category query key to 'category_id' by default
+  category: env.VITE_API_PRODUCT_CATEGORY_PARAM || 'category_id',
 }

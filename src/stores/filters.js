@@ -7,6 +7,7 @@ export const useFiltersStore = defineStore('filters', () => {
   const availability = ref('in_stock')
   const subcategories = ref([])
   const brands = ref([])
+  const category = ref('')
 
   const queryParams = computed(() => ({
     priceMin: priceMin.value,
@@ -14,6 +15,7 @@ export const useFiltersStore = defineStore('filters', () => {
     availability: availability.value,
     subcategories: subcategories.value,
     brands: brands.value,
+    category: category.value,
   }))
 
   function setPriceRange(min, max) {
@@ -33,12 +35,21 @@ export const useFiltersStore = defineStore('filters', () => {
     brands.value = Array.isArray(value) ? value : [value]
   }
 
+  function setCategory(value) {
+    if (value && typeof value === 'object') {
+      category.value = value.id ?? value.slug ?? value.name ?? ''
+    } else {
+      category.value = value ?? ''
+    }
+  }
+
   function clearFilters() {
     priceMin.value = 0
     priceMax.value = 37383
     availability.value = 'in_stock'
     subcategories.value = []
     brands.value = []
+    category.value = ''
   }
 
   return {
@@ -47,11 +58,13 @@ export const useFiltersStore = defineStore('filters', () => {
     availability,
     subcategories,
     brands,
+    category,
     queryParams,
     setPriceRange,
     setAvailability,
     setSubcategories,
     setBrands,
+    setCategory,
     clearFilters,
   }
 })
