@@ -106,7 +106,7 @@ onMounted(() => {
               :href="`#${(typeof cat === 'string' ? cat : cat.name || '').toString().toLowerCase().replace(/\s+/g, '-')}`"
               class="block py-1 hover:underline whitespace-nowrap"
             >
-              {{ typeof cat === 'string' ? cat : cat.name || cat.id }}
+              {{  cat }}
             </a>
           </li>
         </ul>

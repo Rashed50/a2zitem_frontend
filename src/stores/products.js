@@ -25,7 +25,7 @@ export const useProductsStore = defineStore('products', () => {
   const total = ref(0)
   const loading = ref(false)
   const sortBy = ref('text_quantity_desc')
-  const perPage = ref(50)
+  const page_size = ref(50)
   const page = ref(1)
 
   const products = computed(() => {
@@ -64,7 +64,7 @@ export const useProductsStore = defineStore('products', () => {
     try {
       const filterPayload = {
         sort: sortBy.value,
-        perPage: perPage.value,
+        page_size: page_size.value,
         page: page.value,
         ...filtersStore.queryParams,
       }
@@ -85,8 +85,8 @@ export const useProductsStore = defineStore('products', () => {
     sortBy.value = value
   }
 
-  function setPerPage(value) {
-    perPage.value = value
+  function setPageSize(value) {
+    page_size.value = value
     page.value = 1
   }
 
@@ -99,12 +99,12 @@ export const useProductsStore = defineStore('products', () => {
     total,
     loading,
     sortBy,
-    perPage,
+    page_size,
     page,
     products,
     fetchProducts,
     setSort,
-    setPerPage,
+    setPageSize,
     setPage,
   }
 })

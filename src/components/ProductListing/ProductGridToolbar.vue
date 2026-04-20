@@ -3,12 +3,12 @@ import { ref } from 'vue'
 
 defineProps({
   sortBy: { type: String, default: 'text_quantity_desc' },
-  perPage: { type: Number, default: 20 },
+  page_size: { type: Number, default: 20 },
   total: { type: Number, default: 0 },
   loading: { type: Boolean, default: false },
 })
 
-const emit = defineEmits(['update:sortBy', 'update:perPage'])
+const emit = defineEmits(['update:sortBy', 'update:page_size'])
 
 const compareCount = ref(0)
 const sortOptions = [
@@ -24,7 +24,7 @@ function onSortChange(e) {
 
 function onShowChange(e) {
   const val = Number(e.target.value)
-  if (val > 0) emit('update:perPage', val)
+  if (val > 0) emit('update:page_size', val)
 }
 </script>
 
@@ -66,13 +66,12 @@ function onShowChange(e) {
         <label for="show" class="text-sm text-gray-700">Show</label>
         <select
           id="show"
-          :value="perPage"
+          :value="page_size"
           class="rounded border border-gray-300 text-sm py-1.5 px-2 focus:ring-header-blue focus:border-header-blue"
           @change="onShowChange"
         >
-          <option :value="10">10</option>
-          <option :value="20">20</option>
           <option :value="50">50</option>
+          <option :value="100">100</option>
         </select>
       </div>
     </div>

@@ -7,7 +7,7 @@ const env = import.meta.env
 export const productListQueryKeys = {
   sort: env.VITE_API_PRODUCT_SORT_PARAM || 'sort',
   page: env.VITE_API_PRODUCT_PAGE_PARAM || 'page',
-  perPage: env.VITE_API_PRODUCT_PAGE_SIZE_PARAM || 'perPage',
+  page_size: env.VITE_API_PRODUCT_PAGE_SIZE_PARAM || 'page_size',
   priceMin: env.VITE_API_PRODUCT_PRICE_MIN_PARAM || 'priceMin',
   priceMax: env.VITE_API_PRODUCT_PRICE_MAX_PARAM || 'priceMax',
   /** Query key; values are strings like `in_stock`, `out_of_stock` (see filters store). */

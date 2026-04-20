@@ -8,8 +8,7 @@ import { productListQueryKeys as K } from '@/config/apiProductListParams'
 export function buildProductListParams(state = {}) {
   const {
     sort,
-    perPage,
-    page,
+    page_size,
     priceMin,
     priceMax,
     availability,
@@ -21,8 +20,7 @@ export function buildProductListParams(state = {}) {
   const params = {}
 
   if (sort != null && sort !== '') params[K.sort] = sort
-  if (perPage != null && perPage !== '') params[K.perPage] = perPage
-  if (page != null && page !== '') params[K.page] = page
+  if (page_size != null && page_size !== '') params[K.page_size] = page_size
 
   if (category != null && category !== '') {
     params[K.category] = typeof category === 'object' ? category.id ?? category.slug : category
