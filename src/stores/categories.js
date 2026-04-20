@@ -10,11 +10,20 @@ function normalizeCategoryList(data) {
     : data?.results ?? data?.data ?? data?.categories ?? data?.list ?? []
   if (!Array.isArray(raw)) return []
   return raw.map((item) => {
-    if (typeof item === 'string') return item
-    if (item && typeof item === 'object') {
-      return item.name ?? item.title ?? item.label ?? String(item.id ?? '')
+    if (typeof item === 'string') {
+      const name = item
+      const id = name.toString().toLowerCase().replace(/\s+/g, '-')
+      return { id, name }
     }
-    return String(item)
+    if (item && typeof item === 'object') {
+      const name = item.name ?? item.title ?? item.label ?? String(item.id ?? '')
+      const id = item.id ?? name.toString().toLowerCase().replace(/\s+/g, '-')
+      // preserve original fields but ensure id and name exist
+      return { ...item, id, name }
+    }
+    const name = String(item)
+    const id = name.toString().toLowerCase().replace(/\s+/g, '-')
+    return { id, name }
   }).filter(Boolean)
 }
 

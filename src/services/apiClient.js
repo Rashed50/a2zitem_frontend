@@ -2,7 +2,8 @@ import axios from 'axios'
 
 function resolveBaseUrl() {
   const url =
-    import.meta.env.VITE_API_BASE_URL?.trim() ||
+  // 'https://a2zbackend.a2zitem.com/api'
+    // import.meta.env.VITE_API_BASE_URL?.trim() ||
     import.meta.env.VITE_API_BASE_URL_PRODUCTION?.trim() ||
     ''
   return url.replace(/\/$/, '')

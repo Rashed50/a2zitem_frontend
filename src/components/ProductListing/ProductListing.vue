@@ -17,7 +17,7 @@ watch(
       filtersStore.subcategories.join(','),
       filtersStore.brands.join(','),
       productsStore.sortBy,
-      productsStore.perPage,
+      productsStore.page_size,
       productsStore.page,
     ].join('|'),
   () => {
@@ -31,11 +31,11 @@ watch(
   <div class="space-y-4">
     <ProductGridToolbar
       :sort-by="productsStore.sortBy"
-      :per-page="productsStore.perPage"
+      :page_size="productsStore.page_size"
       :total="productsStore.total"
       :loading="productsStore.loading"
       @update:sort-by="productsStore.setSort"
-      @update:per-page="productsStore.setPerPage"
+      @update:page_size="productsStore.setPageSize"
     />
     <ProductGrid
       :products="productsStore.products"
