@@ -5,16 +5,14 @@
 const env = import.meta.env
 
 export const productListQueryKeys = {
-  sort: env.VITE_API_PRODUCT_SORT_PARAM || 'sort',
+  sort: env.VITE_API_PRODUCT_SORT_PARAM || 'ordering',
   page: env.VITE_API_PRODUCT_PAGE_PARAM || 'page',
   page_size: env.VITE_API_PRODUCT_PAGE_SIZE_PARAM || 'page_size',
-  priceMin: env.VITE_API_PRODUCT_PRICE_MIN_PARAM || 'priceMin',
-  priceMax: env.VITE_API_PRODUCT_PRICE_MAX_PARAM || 'priceMax',
-  /** Query key; values are strings like `in_stock`, `out_of_stock` (see filters store). */
-  availability: env.VITE_API_PRODUCT_AVAILABILITY_PARAM || 'availability',
-  subcategories: env.VITE_API_PRODUCT_SUBCATEGORIES_PARAM || 'subcategories',
-  // Force brand query key to 'brand_id' by default
+  priceMin: env.VITE_API_PRODUCT_PRICE_MIN_PARAM || 'min_price',
+  priceMax: env.VITE_API_PRODUCT_PRICE_MAX_PARAM || 'max_price',
+  availability: env.VITE_API_PRODUCT_AVAILABILITY_PARAM || 'in_stock',
+  subcategories: env.VITE_API_PRODUCT_SUBCATEGORIES_PARAM || 'sub_category_id',
   brandId: env.VITE_API_PRODUCT_BRAND_PARAM || 'brand_id',
-  // Force category query key to 'category_id' by default
   category: env.VITE_API_PRODUCT_CATEGORY_PARAM || 'category_id',
+  search: env.VITE_API_PRODUCT_SEARCH_PARAM || 'search',
 }
