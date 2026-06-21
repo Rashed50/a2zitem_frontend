@@ -7,7 +7,7 @@ export const useFiltersStore = defineStore('filters', () => {
   const availability = ref('in_stock')
   const subcategories = ref([])
   const brands = ref([])
-  const category = ref('')
+  const category = ref(null)
 
   const queryParams = computed(() => ({
     priceMin: priceMin.value,
@@ -38,9 +38,11 @@ export const useFiltersStore = defineStore('filters', () => {
 
   function setCategory(value) {
     if (value && typeof value === 'object') {
-      category.value = value.id ?? value.slug ?? value.name ?? ''
+      category.value = value
+    } else if (value == null || value === '') {
+      category.value = null
     } else {
-      category.value = value ?? ''
+      category.value = value
     }
   }
 
@@ -50,7 +52,7 @@ export const useFiltersStore = defineStore('filters', () => {
     availability.value = 'in_stock'
     subcategories.value = []
     brands.value = []
-    category.value = ''
+    category.value = null
   }
 
   return {
@@ -66,6 +68,5 @@ export const useFiltersStore = defineStore('filters', () => {
     setSubcategories,
     setBrands,
     setCategory,
-    clearFilters,
   }
 })
