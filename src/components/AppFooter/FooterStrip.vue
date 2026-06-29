@@ -1,14 +1,14 @@
 <script setup>
 const items = [
   // { title: 'STORE LOCATOR', icon: 'location', text: 'Find our Stores' },
-  { title: 'ONLINE ORDER', icon: 'phone', text: '+88 01848 380 992', text2: '+88 01716 950 877' },
-  { title: 'DBBL', icon: 'bank', text: 'Dutch-Bangla Bank Ltd.' , text1:'Name: Md. Mohibul Islam ', text2: 'A/C No: 13710 3019 1994',
-    text3: 'Branch: Savar Bazar, Dhaka',text4: 'Routing No: 090264122' },
-  {title: 'IBBL', icon: 'bank', text: 'Islami Bank Bangladesh Ltd.' , text1:'Name: Md. Mohibul Islam ', text2: 'A/C No: 13002 0433 0305',
-    text3: 'Branch: Savar Bazar, Dhaka',text4: 'Routing No: 125264097' },
-  { title: 'bKash', icon: 'wallet', text: '01716 950 877', text2: 'Personal Account' },
-  { title: 'Nagad', icon: 'wallet', text: '01716 950 877', text2: 'Personal Account' },
-  { title: 'Rocket', icon: 'wallet', text: '01716 950 877', text2: 'Personal Account' },
+  { title: 'ONLINE ORDER', icon: 'phone', text: '01857 086 623', text2: '01351 658 999' },
+  { title: 'DBBL', icon: 'bank', text: 'Dutch-Bangla Bank Ltd.' , text1:'Name: Md. Rashedul Hoque ', text2: 'A/C No: 12010 3004 9297',
+    text3: 'Branch: KDA Khulna , Khulna',text4: '' },
+  {title: 'IBBL', icon: 'bank', text: 'Islami Bank Bangladesh Ltd.' , text1:'Name: Md. Rashedul Hoque ', text2: 'A/C No: 31602 0060 8113',
+    text3: 'Branch: Meherpur Sadar, Meherpur',text4: '' },
+  { title: 'bKash', icon: 'wallet', text: '01917 994 637', text2: 'Personal Account' },
+  { title: 'Nagad', icon: 'wallet', text: '01731 540 704', text2: 'Personal Account' },
+  { title: 'Rocket', icon: 'wallet', text: '01796 410 756', text2: 'Personal Account' },
 ]
 </script>
 
